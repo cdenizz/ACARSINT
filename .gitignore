@@ -1,0 +1,46 @@
+# ACARSINT local runtime and receiver data
+runtime/
+**/runtime/
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.wal
+*.shm
+*.iq
+*.wav
+*.cfile
+*.sdr
+*.pcap
+
+# Private releases, source bundles and caches
+*.zip
+*.tar
+*.tar.gz
+*.whl
+*.dll
+*.exe
+*.so
+*.pyd
+receiver/Sources.zip
+Notices/licenses/
+
+# Credentials, local configuration and logs
+.env
+.env.*
+!.env.example
+*credentials*
+*password*
+*token*
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
+logs/
+cache/
+__pycache__/
+.venv/
+venv/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,54 @@
+{
+  "source": "Genuine packaged-application Chromium captures. Source files are retained locally and were not copied into this repository.",
+  "method": "Cropped RGB PNG copies with opaque pixel redactions; generated copies contain no EXIF metadata. No alternate text or values were generated.",
+  "screenshots": [
+    {
+      "name": "01-overview.png",
+      "bytes": 91231,
+      "sha256": "a1d13a7a401b2c83bdc6372b39eeb24219cc029be390e9dd8d7524b884babae9",
+      "width": 1365,
+      "height": 465,
+      "exif_count": 0
+    },
+    {
+      "name": "02-session-history.png",
+      "bytes": 24848,
+      "sha256": "6866f1389113e491d7f33ee8e20e33714bee48837fc12415197c83045b499967",
+      "width": 1336,
+      "height": 198,
+      "exif_count": 0
+    },
+    {
+      "name": "03-adsc-fields.png",
+      "bytes": 22755,
+      "sha256": "37aa47331b9d438d88afae1df024eb8bf0bea0c16885665b2656bfead677aded",
+      "width": 1332,
+      "height": 451,
+      "exif_count": 0
+    },
+    {
+      "name": "04-maintenance-report.png",
+      "bytes": 20045,
+      "sha256": "fc7bea6e2268c273c45989daeca03685399ee743c8f9a0c6e485d584074458af",
+      "width": 1400,
+      "height": 344,
+      "exif_count": 0
+    },
+    {
+      "name": "05-readable-message.png",
+      "bytes": 18935,
+      "sha256": "159059d0da3e0777cd81d0023355b782f6175f1a606f2fc71642bfdefcaffdd0",
+      "width": 1400,
+      "height": 707,
+      "exif_count": 0
+    },
+    {
+      "name": "06-message-history.png",
+      "bytes": 48910,
+      "sha256": "4f43571080e87bb46072783288c04552926aeb6738a35c8b4b008a98e77755b5",
+      "width": 1336,
+      "height": 482,
+      "exif_count": 0
+    }
+  ]
+}
