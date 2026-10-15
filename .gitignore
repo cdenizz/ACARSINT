@@ -44,3 +44,13 @@ __pycache__/
 venv/
 .DS_Store
 Thumbs.db
+
+# Aircraft photos and other media require separate rights/privacy review
+*.jpg
+*.jpeg
+*.webp
+*.gif
+*.mp4
+*.pcapng
+*.bak
+*.sql
