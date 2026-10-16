@@ -1,72 +1,66 @@
-# Complete interface tour
+# Interface gallery
 
-These are genuine captures of the frozen Windows application with an isolated historical subset. All sixteen states were visited in Brave/Chromium at 1600×900. Additional tablet and phone checks found no horizontal overflow. Private originals, full photo evidence and original identifiers stay outside this repository.
+The images below are authentic views of the packaged Windows RC5.1 application using a curated set of 232 retained historical messages across five aircraft. The underlying observations were not modified. Aircraft identities, exact times, precise positions and sensitive payload spans are permanently masked. Several captures are tightly cropped to focus on the relevant workspace; no interface or result was reconstructed.
 
-Aircraft identity, timing, precise positions, private endpoints and identifying payload portions are permanently masked. Third-party photographs are explicitly omitted in these publication copies. The underlying application data and technical results were not replaced.
+The legacy aircraft-photo catalog remains an application feature, but third-party photographs are not included here because the selected images do not have documented redistribution permission. See [limitations](limitations.md).
 
-<a href="../assets/screenshots/00-application-tour.png"><img src="../assets/screenshots/00-application-tour.png" width="1100" alt="Contact sheet of sixteen genuine full-interface application states"></a>
+<a href="../assets/screenshots/00-application-tour.png"><img src="../assets/screenshots/00-application-tour.png" width="1100" alt="Contact sheet of sixteen authentic ACARSINT workspaces: Overview, Messages, Events, Aircraft, analysis, receivers and Map"></a>
 
 ## Tour index
 
-| View | Full capture | What is shown |
+| View | Screenshot | What it shows |
 |---|---|---|
-| Overview | [Open image](../assets/screenshots/01-overview.png) | Latest retained window; receiver offline, collector stopped. |
-| Messages | [Open image](../assets/screenshots/02-messages.png) | Populated message stream and selected report. |
-| Events | [Open image](../assets/screenshots/03-events.png) | 203 derived rows, with legacy and unresolved states explicit. |
-| Aircraft List | [Open image](../assets/screenshots/04-aircraft-list.png) | Five retained aircraft and a selected inspector. |
-| Aircraft Overview | [Open image](../assets/screenshots/05-aircraft-overview.png) | Messages and interpreted events together. |
-| Aircraft Messages | [Open image](../assets/screenshots/06-aircraft-messages.png) | Protocol labels and reception measurements. |
-| Session History | [Open image](../assets/screenshots/07-aircraft-history.png) | Actual retained session counts. |
-| Historical Timeline | [Open image](../assets/screenshots/08-aircraft-timeline.png) | 87 layered observations anchored to the historical session. |
+| Overview | [Open image](../assets/screenshots/01-overview.png) | Recent retained counts, events and communications. |
+| Messages | [Open image](../assets/screenshots/02-messages.png) | Populated message stream and decoder/evidence inspector. |
+| Events | [Open image](../assets/screenshots/03-events.png) | Derived records with source and evidence states. |
+| Aircraft List | [Open image](../assets/screenshots/04-aircraft-list.png) | Aircraft types, operators, recent activity and counts. |
+| Aircraft Detail | [Open image](../assets/screenshots/05-aircraft-overview.png) | Retained message activity in a selected aircraft context. |
+| Aircraft Messages | [Open image](../assets/screenshots/06-aircraft-messages.png) | Labels, measurements and retained message history. |
+| Session History | [Open image](../assets/screenshots/07-aircraft-history.png) | One actual session grouping and its evidence counts. |
+| Timeline | [Open image](../assets/screenshots/08-aircraft-timeline.png) | Layered observations and events in relative order. |
 | ADS-C decoding | [Open image](../assets/screenshots/10-adsc-decoding.png) | ARINC 622 over VDL2; distinct from ADS-B. |
-| Maintenance report | [Open image](../assets/screenshots/11-maintenance-report.png) | FLR payload and ATA 34/36/00; no confirmed failure claim. |
-| Readable message | [Open image](../assets/screenshots/12-readable-text.png) | Original Raw tab; inaccurate generic time extraction excluded. |
-| Receiver readiness | [Open image](../assets/screenshots/13-receiver-settings.png) | Hardware stopped; isolated readiness limitations retained. |
-| Receiver channels | [Open image](../assets/screenshots/14-receiver-channel-settings.png) | Native configuration controls; no hardware action. |
-| Source evidence | [Open image](../assets/screenshots/15-aircraft-evidence.png) | Metadata hints and source context. |
-| Related sequences | [Open image](../assets/screenshots/16-related-sequences.png) | Bounded related-message context, not a conversation claim. |
-| Historical Map | [Open image](../assets/screenshots/20-historical-map-regional.png) | Real OpenStreetMap tiles; precise marker, coordinates and timing withheld. |
+| Maintenance report | [Open image](../assets/screenshots/11-maintenance-report.png) | FLR payload and decoded ATA 34/36/00 fields. |
+| Readable message | [Open image](../assets/screenshots/12-readable-text.png) | Original readable text with routing and timing concealed. |
+| Receiver readiness | [Open image](../assets/screenshots/13-receiver-settings.png) | Packaged receiver status and integrations. |
+| Receiver channels | [Open image](../assets/screenshots/14-receiver-channel-settings.png) | ACARS, VDL2 and ADS-B configuration controls. |
+| Source evidence | [Open image](../assets/screenshots/15-aircraft-evidence.png) | Identity hints, source breakdown and session context. |
+| Related sequences | [Open image](../assets/screenshots/16-related-sequences.png) | Bounded sequence context, not a conversation claim. |
+| Historical Map | [Open image](../assets/screenshots/20-historical-map-regional.png) | Real OpenStreetMap tiles and broad regional context; exact marker withheld. |
 
-## Additional workspaces
+## Message analysis
 
-The README includes the main dashboard, inspectors, map and decoded examples. These additional captures show the retained context behind them.
+### ADS-C over VDL2
 
-### Aircraft Messages
+<a href="../assets/screenshots/10-adsc-decoding.png"><img src="../assets/screenshots/10-adsc-decoding.png" width="1100" alt="Decoded ARINC 622 ADS-C fields, CRC status and non-identifying report values"></a>
 
-Retained messages with labels, frequency and available decoder signal measurements.
+This is an ADS-C report carried over VDL2, not an ADS-B observation.
 
-<a href="../assets/screenshots/06-aircraft-messages.png"><img src="../assets/screenshots/06-aircraft-messages.png" width="1000" alt="Full aircraft messages workspace with private identifiers permanently redacted"></a>
+### Structured maintenance report
 
-### Retained sessions
+<a href="../assets/screenshots/11-maintenance-report.png"><img src="../assets/screenshots/11-maintenance-report.png" width="1100" alt="H1/FLR report with decoded ATA 34/36/00 and component terminology"></a>
 
-One retained grouping: 44 messages, 37 event records, two positions and one sequence. These are different evidence layers, not independent flights.
+The payload names components; it does not independently establish a confirmed equipment failure.
 
-<a href="../assets/screenshots/07-aircraft-history.png"><img src="../assets/screenshots/07-aircraft-history.png" width="1000" alt="Full retained sessions workspace with private identifiers permanently redacted"></a>
+### Readable operational text
 
-### Receiver channels
+<a href="../assets/screenshots/12-readable-text.png"><img src="../assets/screenshots/12-readable-text.png" width="1100" alt="Readable original label 80 message with identifying routing and timing concealed"></a>
 
-Actual ACARS/VDL2/ADS-B controls, gain and PPM fields. Device identifiers are withheld; no receiver was started.
+The readable text is retained source content; authorship is not independently established.
 
-<a href="../assets/screenshots/14-receiver-channel-settings.png"><img src="../assets/screenshots/14-receiver-channel-settings.png" width="1000" alt="Full receiver channels workspace with private identifiers permanently redacted"></a>
+## Aircraft context and settings
 
-### Identity and evidence
+<a href="../assets/screenshots/06-aircraft-messages.png"><img src="../assets/screenshots/06-aircraft-messages.png" width="1000" alt="Aircraft message history with protocol labels and reception measurements"></a>
 
-Aircraft metadata, source breakdown and session context. Current metadata hints are not historical proof.
+<a href="../assets/screenshots/07-aircraft-history.png"><img src="../assets/screenshots/07-aircraft-history.png" width="1000" alt="Retained sessions with message, event, position and sequence counts"></a>
 
-<a href="../assets/screenshots/15-aircraft-evidence.png"><img src="../assets/screenshots/15-aircraft-evidence.png" width="1000" alt="Full identity and evidence workspace with private identifiers permanently redacted"></a>
+<a href="../assets/screenshots/14-receiver-channel-settings.png"><img src="../assets/screenshots/14-receiver-channel-settings.png" width="1000" alt="Receiver and channel configuration controls with device identifiers withheld"></a>
 
-### Related messages
+<a href="../assets/screenshots/15-aircraft-evidence.png"><img src="../assets/screenshots/15-aircraft-evidence.png" width="1000" alt="Aircraft identity and source-evidence table with identifying fields masked"></a>
 
-A bounded, chronological grouping with its linking criteria. It does not establish a conversation.
+<a href="../assets/screenshots/16-related-sequences.png"><img src="../assets/screenshots/16-related-sequences.png" width="1000" alt="Related sequence view and its bounded linking criteria"></a>
 
-<a href="../assets/screenshots/16-related-sequences.png"><img src="../assets/screenshots/16-related-sequences.png" width="1000" alt="Full related messages workspace with private identifiers permanently redacted"></a>
+## Historical Map
 
-## Capture checks
+<a href="../assets/screenshots/20-historical-map-regional.png"><img src="../assets/screenshots/20-historical-map-regional.png" width="1000" alt="Historical Map with genuine OpenStreetMap tiles and exact observation marker concealed"></a>
 
-- Actual packaged launcher and local authentication; no development-server substitute.
-- 232 historical messages, five aircraft, five sessions; originals preserved.
-- Matching catalog photographs rendered in all four media views in private evidence. No fresh provider search was needed.
-- Actual map proxy returned PNG tiles with HTTP 200; final basemap pixels were inspected. Aborted requests during zoom are distinguished from failures.
-- No horizontal overflow in final desktop captures or the checked tablet/phone layouts.
-- Managed application shutdown completed with exit code 0; all five disposable SQLite databases passed integrity checks.
-- No new physical RF acceptance, synthetic observations or model retraining was performed.
+The basemap is genuine, and the displayed positions are retained ACARS context. The concealed marker does not represent ADS-B.

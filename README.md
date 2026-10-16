@@ -4,9 +4,9 @@ A local aircraft data collection and analysis platform built around ACARS, VDL M
 
 ACARSINT retains received messages and brings their original payloads, decoded fields, aircraft context, histories and related events into one browser interface. It runs locally, with SQLite storage and private Windows x64 and native Linux x86_64 packages. RC5.1 is frozen.
 
-<a href="assets/screenshots/02-messages.png"><img src="assets/screenshots/02-messages.png" width="1100" alt="Full Messages workspace with retained ACARS records and a selected report in its evidence inspector"></a>
+<a href="assets/screenshots/01-overview.png"><img src="assets/screenshots/01-overview.png" width="1100" alt="Overview dashboard showing receiver state, retained messages, aircraft counts and recent communications"></a>
 
-*Messages and their interpretation remain visible together. This is the packaged application displaying retained historical data, with identifying values redacted.*
+*Overview — recent retained activity and receiver state in the packaged application.*
 
 ## Why I built it
 
@@ -16,20 +16,20 @@ The result is a Python backend and a JavaScript interface for moving between mes
 
 ## Interface
 
-These captures come from an authenticated, isolated RC5.1 installation containing **232 genuine retained messages across five aircraft**. They are historical observations, not a live traffic feed. Click any image for the full 1600×900 capture.
+These captures come from the packaged Windows RC5.1 application, using **232 genuine retained messages across five aircraft**. The observations are historical, not a live feed. Open an image for a larger view.
 
 <table>
 <tr>
-<td><a href="assets/screenshots/01-overview.png"><img src="assets/screenshots/01-overview.png" width="500" alt="Overview with the latest retained communications, aircraft cards and stopped receiver status"></a><br><sub>Overview — latest retained activity and receiver state.</sub></td>
-<td><a href="assets/screenshots/04-aircraft-list.png"><img src="assets/screenshots/04-aircraft-list.png" width="500" alt="Aircraft table with multiple aircraft types and a selected aircraft inspector"></a><br><sub>Aircraft — retained identities, message counts and an inspector.</sub></td>
+<td><a href="assets/screenshots/02-messages.png"><img src="assets/screenshots/02-messages.png" width="500" alt="Messages workspace with retained ACARS/VDL2 records and a selected evidence inspector"></a><br><sub>Messages — retained records and their decoder/evidence context.</sub></td>
+<td><a href="assets/screenshots/04-aircraft-list.png"><img src="assets/screenshots/04-aircraft-list.png" width="500" alt="Aircraft list crop with types, operators, activity and message counts; identifiers masked"></a><br><sub>Aircraft — a table of retained types, operators and activity.</sub></td>
 </tr>
 <tr>
-<td><a href="assets/screenshots/05-aircraft-overview.png"><img src="assets/screenshots/05-aircraft-overview.png" width="500" alt="Aircraft Detail with its complete header, session summary, recent messages and interpreted events"></a><br><sub>Aircraft Detail — source activity and related interpretations.</sub></td>
-<td><a href="assets/screenshots/20-historical-map-regional.png"><img src="assets/screenshots/20-historical-map-regional.png" width="500" alt="Historical Map with a genuine OpenStreetMap basemap and source-aware aircraft sidebar; exact observation marker and coordinates withheld"></a><br><sub>Historical Map — recorded ACARS context on a real basemap.</sub></td>
+<td><a href="assets/screenshots/05-aircraft-overview.png"><img src="assets/screenshots/05-aircraft-overview.png" width="500" alt="Aircraft Detail workspace showing recent message activity within a retained session"></a><br><sub>Aircraft Detail — recent message activity within a retained session.</sub></td>
+<td><a href="assets/screenshots/20-historical-map-regional.png"><img src="assets/screenshots/20-historical-map-regional.png" width="500" alt="Historical Map with genuine OpenStreetMap tiles and broad regional context; exact observation marker withheld"></a><br><sub>Historical Map — recorded ACARS context on a real basemap.</sub></td>
 </tr>
 </table>
 
-Registrations, callsigns, exact timing, precise positions and private identifiers are permanently masked in these publication copies. Matching aircraft photographs loaded in the local application; their panels are explicitly omitted here while repository reuse permission remains unresolved. No unrelated aircraft image or reconstructed UI is substituted. The map retains OpenStreetMap attribution; its exact observation marker is withheld.
+Aircraft registrations, callsigns, exact observation times, precise positions and private identifiers are masked. The map uses a real OpenStreetMap basemap with its exact observation marker withheld.
 
 <table>
 <tr>
