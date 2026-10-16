@@ -1,121 +1,154 @@
 # ACARSINT
 
-ACARSINT is a local aircraft-data collection and analysis application. It brings together messages and receiver observations from ACARS and VDL Mode 2, with ADS-B ingestion and tracking in the native Linux distribution. Its browser interface lets me inspect retained messages, decoded fields, aircraft histories, derived events and historical positions.
+A local aircraft data collection and analysis platform built around ACARS, VDL Mode 2 and ADS-B.
 
-This repository documents a finished, private RC5.1 project. It contains neither the Core source nor databases, receiver recordings or software packages.
+ACARSINT retains received messages and brings their original payloads, decoded fields, aircraft context, histories and related events into one browser interface. It runs locally, with SQLite storage and private Windows x64 and native Linux x86_64 packages. RC5.1 is frozen.
 
-## Screenshots
+<a href="assets/screenshots/02-messages.png"><img src="assets/screenshots/02-messages.png" width="1100" alt="Full Messages workspace with retained ACARS records and a selected report in its evidence inspector"></a>
 
-These are genuine captures from the packaged application and the isolated historical showcase. The published image copies have opaque redactions for identities, dates, times, addresses and precise positions. Black bars are the redactions; they contain no hidden or reversible data. No aircraft photographs are included.
+*Messages and their interpretation remain visible together. This is the packaged application displaying retained historical data, with identifying values redacted.*
+
+## Why I built it
+
+I started by receiving ACARS messages with SDR equipment and looking at what they contained. A decoder could show the next message, but I wanted to keep the original text, inspect unfamiliar formats and return to an aircraft's earlier activity. ACARSINT gradually grew around those needs: collection, storage, decoding, and a way to explore the records without losing their source context.
+
+The result is a Python backend and a JavaScript interface for moving between messages, aircraft, events, sessions and recorded positions. The application keeps a received report separate from the conclusions a parser or classifier draws from it.
+
+## Interface
+
+These captures come from an authenticated, isolated RC5.1 installation containing **232 genuine retained messages across five aircraft**. They are historical observations, not a live traffic feed. Click any image for the full 1600×900 capture.
 
 <table>
 <tr>
-<td><img src="assets/screenshots/01-overview.png" alt="Overview page; identity, time and preview fields redacted" width="520"><br><sub>Overview · retained activity with private fields redacted.</sub></td>
-<td><img src="assets/screenshots/02-session-history.png" alt="Retained session history; start, end and flight fields redacted" width="520"><br><sub>Aircraft history · session context with identity and interval removed.</sub></td>
+<td><a href="assets/screenshots/01-overview.png"><img src="assets/screenshots/01-overview.png" width="500" alt="Overview with the latest retained communications, aircraft cards and stopped receiver status"></a><br><sub>Overview — latest retained activity and receiver state.</sub></td>
+<td><a href="assets/screenshots/04-aircraft-list.png"><img src="assets/screenshots/04-aircraft-list.png" width="500" alt="Aircraft table with multiple aircraft types and a selected aircraft inspector"></a><br><sub>Aircraft — retained identities, message counts and an inspector.</sub></td>
 </tr>
 <tr>
-<td><img src="assets/screenshots/03-adsc-fields.png" alt="Decoded ADS-C fields; aircraft identity and position redacted" width="520"><br><sub>ADS-C over VDL2 · message type and CRC field, with identity and position values hidden.</sub></td>
-<td><img src="assets/screenshots/04-maintenance-report.png" alt="Structured FLR report; timestamp and receiver details redacted" width="520"><br><sub>Structured FLR payload · ATA fields and component references. A report does not prove a confirmed failure.</sub></td>
-</tr>
-<tr>
-<td><img src="assets/screenshots/05-readable-message.png" alt="Readable ACARS message; route, aircraft and timing redacted" width="520"><br><sub>Operational free text · a short readable excerpt, with route and timing redacted.</sub></td>
-<td><img src="assets/screenshots/06-message-history.png" alt="Aircraft message history; identity and message timing redacted" width="520"><br><sub>Message history · protocol labels remain visible after identity and time fields were removed.</sub></td>
+<td><a href="assets/screenshots/05-aircraft-overview.png"><img src="assets/screenshots/05-aircraft-overview.png" width="500" alt="Aircraft Detail with its complete header, session summary, recent messages and interpreted events"></a><br><sub>Aircraft Detail — source activity and related interpretations.</sub></td>
+<td><a href="assets/screenshots/20-historical-map-regional.png"><img src="assets/screenshots/20-historical-map-regional.png" width="500" alt="Historical Map with a genuine OpenStreetMap basemap and source-aware aircraft sidebar; exact observation marker and coordinates withheld"></a><br><sub>Historical Map — recorded ACARS context on a real basemap.</sub></td>
 </tr>
 </table>
 
-The map is omitted from the gallery. The available local map capture had no basemap, and its historical track exposed precise positions and timing.
+Registrations, callsigns, exact timing, precise positions and private identifiers are permanently masked in these publication copies. Matching aircraft photographs loaded in the local application; their panels are explicitly omitted here while repository reuse permission remains unresolved. No unrelated aircraft image or reconstructed UI is substituted. The map retains OpenStreetMap attribution; its exact observation marker is withheld.
 
-## How it grew
+<table>
+<tr>
+<td><a href="assets/screenshots/03-events.png"><img src="assets/screenshots/03-events.png" width="500" alt="Events workspace separating legacy interpretations from unresolved evidence states"></a><br><sub>Events — source, interpretation and evidence state.</sub></td>
+<td><a href="assets/screenshots/08-aircraft-timeline.png"><img src="assets/screenshots/08-aircraft-timeline.png" width="500" alt="Historical aircraft timeline with messages, sessions, protocol observations and related sequences"></a><br><sub>Timeline — different evidence layers in their historical context.</sub></td>
+</tr>
+</table>
 
-I started by receiving and examining ACARS messages with SDR equipment. Keeping useful records, decoding different message shapes and comparing activity over time became the next practical needs. I added VDL2, then aircraft histories, event analysis, timelines and a browser interface around the retained data. ADS-B ingestion followed in the Linux build. ACARSINT grew incrementally from the work of collecting and inspecting messages rather than from a plan to build a general tracking product.
+The [complete interface tour](docs/gallery.md) includes the contact sheet, session history, aircraft messages, source evidence, sequences and receiver configuration.
 
 ## What it does
 
-- Runs protocol-specific receivers and upstream decoders as separate processes.
-- Stores decoded messages and available receiver/decoder measurements in local SQLite databases.
-- Keeps original payloads beside structured parser output and later interpretations.
-- Provides Messages, Events, aircraft details, history and session views.
-- Shows stored positions in a historical map while retaining whether a point came from ACARS/ADS-C or ADS-B.
-- Offers optional aircraft metadata/photo lookups. Offline and privacy settings control whether remote URLs can be requested or displayed.
+- **ACARS:** manages receiver profiles, ingests decoder output and retains original payloads with available reception measurements.
+- **VDL Mode 2:** retains native frames and ACARS messages carried over VDL2, preserving their transport provenance.
+- **ADS-B:** ingests local decoder states and available positions for aircraft tracking. Windows has a managed Dump1090 adapter; Linux bundles `readsb`.
+- **Messages and decoding:** searchable protocol labels, raw text, structured parser fields, related-message sequences and separate classification results.
+- **Aircraft context:** identity metadata, retained histories, flight-session groupings, timelines and Flight Story views linked to their observations.
+- **Events and maps:** derived event records, supporting evidence and historical positions with explicit source context.
+- **Optional enrichment:** local aircraft metadata and exact-registration photo catalogs, plus opt-in fresh photo discovery governed by offline/privacy settings and provider availability.
 
-`acarsdec`, `dumpvdl2` and `readsb` perform their own RF demodulation. ACARSINT manages receiver profiles, ingests output and presents the retained evidence; it does not replace those decoders.
+Receiver profiles assign physical devices independently. Upstream programs handle RF demodulation; ACARSINT manages their processes and works with their output. It does not replace the decoders' native multichannel DSP.
 
-### Main technologies
-
-| Area | Components in the accepted packages |
-|---|---|
-| Application | Python, FastAPI, SQLite |
-| Web interface | HTML, CSS, JavaScript modules, MapLibre GL for the map |
-| ACARS | `acarsdec` 4.6 on Windows/Linux; `libacars` 2.2.1 |
-| VDL2 | `dumpvdl2` 2.7.0 on Windows and 2.6.0 on Linux |
-| ADS-B | `readsb` 3.16.17 in the Linux package; no integrated Windows ADS-B adapter in the final candidate |
-| SDR support | RTL-SDR 2.0.3 utilities and bundled platform libraries; compatible USB hardware/host access are separate |
-
-The Windows package carries CPython 3.14.8; the native Linux package carries CPython 3.12.14. Host glibc/ELF loader requirements apply to Linux. The accepted package notices retain the detailed Python-library and native dependency inventories.
-
-### Receiver availability by package
-
-| Package | Bundled receiver components | ADS-B receiver integration |
-|---|---|---|
-| Windows x64 | `acarsdec`, `dumpvdl2`, RTL-SDR utilities | No working ACARSINT ADS-B/readsb adapter in the final Windows candidate. A helper binary alone is not a supported adapter. |
-| Native Linux x86_64 | `acarsdec`, `dumpvdl2`, `readsb`, RTL-SDR components | `readsb` ingestion and tracks were accepted with labeled fixture data. |
-
-## A couple of real messages
-
-The local historical archive has 125,050 stored message records. 73,407 have `acarsdec` provenance and 51,643 are VDL2 bridge records. A bridge row can represent the same VDL2-carried ACARS reception already present in another store, so those counts must not be added as independent receptions.
-
-A retained structured FLR message names a GPS antenna, coax cable and MMR. ACARSINT exposes the report time and ATA 34/36/00 fields. This shows the message and the parser output; it does not establish a confirmed failure or cause.
-
-A separate retained message contains a readable operational ETA communication. The excerpt below has been redacted and is not a verbatim transcript:
-
-```text
-[aircraft and ground-address header redacted]
-DEAR TEAM, [flight and ETA redacted] THANKS
-```
-
-Classifier labels, model outputs and confidence scores are interpretations of the stored message. They are not calibrated probabilities or proof that a real-world failure or incident occurred.
-
-The supplied historical ADS-B tables contain no aircraft states, track points or Comm-B observations. The archive therefore does not demonstrate a three-source ACARS/VDL2/ADS-B relationship.
-
-## How the pieces fit
+## How it works
 
 ```mermaid
 flowchart LR
-    SDR[RTL-SDR and receiver profiles] --> AC[acarsdec]
-    SDR --> VDL[dumpvdl2]
-    SDR --> ADSB[readsb, Linux distribution]
-    AC --> ING[Protocol-specific ingestion]
-    VDL --> ING
-    ADSB --> ING
-    ING --> DB[(Separate local SQLite stores)]
-    DB --> API[FastAPI on loopback]
-    API --> UI[JavaScript browser interface]
-    DB --> DEC[Structured decoders and derived analysis]
-    DEC --> DB
+    RF[RTL-SDR / receiver profiles] --> D[Native protocol decoders]
+    D --> I[Ingestion and normalization]
+    I --> DB[(Local SQLite stores)]
+    DB --> P[Decoding and interpretation]
+    P --> DB
+    DB --> API[FastAPI / loopback]
+    API --> UI[Browser interface]
 ```
 
-Original decoder output, deterministic parser results, heuristic classifications and derived events are separate evidence layers. The interface can show them side by side without turning a classification into an aircraft-status claim.
+Some structured fields arrive from upstream decoders and `libacars`; others are extracted by the application's parsers. Heuristic labels, learned-model output and derived events remain separate from the original message. Classifier scores are not calibrated probabilities. The [architecture notes](docs/architecture.md) describe these processing stages and the stores behind them.
+
+## Examples from recorded data
+
+The source archive contains **125,050 retained message rows**: 73,407 native ACARS decoder-origin records and 51,643 VDL2 bridge rows. A separate VDL2 store contains 18,772 frames. Bridge representations can refer to the same reception, so these totals must not be added as independent RF observations. The interface tour uses only a small curated subset.
+
+### ADS-C over VDL2
+
+A retained ARINC 622 message exposes an ADS-C report type, CRC result and structured basic-report fields. Altitude, position accuracy and status flags remain visible below; addresses, contract identifiers, exact timing and coordinates are withheld.
+
+<a href="assets/screenshots/10-adsc-decoding.png"><img src="assets/screenshots/10-adsc-decoding.png" width="1100" alt="Full application state showing decoded ARINC 622 ADS-C fields, CRC, altitude, position accuracy and navigation status"></a>
+
+This is **ADS-C carried in ACARS over VDL2**, not an ADS-B observation. The deterministic fields and the historical heuristic/model badges are different processing results.
+
+### Structured maintenance report
+
+An H1 message has matching VDL2 frame evidence with sublabel `CF`. Its `FLR` payload names GPS antenna, coax cable and MMR-related components. The decoder extracts ATA chapter, section and item **34/36/00**.
+
+<a href="assets/screenshots/11-maintenance-report.png"><img src="assets/screenshots/11-maintenance-report.png" width="1100" alt="Expanded original FLR message and decoded ATA 34/36/00 fields with GPS antenna, coax and MMR component text preserved"></a>
+
+The historical interface calls this “Aircraft system fault” and also shows older classification badges. The supported statement is narrower: a received fault-report payload names those components. It does not independently prove a failed component, its cause, a hazardous condition or a completed repair. The structured payload is not presented as natural-language communication.
+
+### Readable operational text
+
+Another retained message contains a greeting, routine ETA content and a closing. Its original words remain visible in the Raw tab, with routing, aircraft identifiers and ETA redacted.
+
+<a href="assets/screenshots/12-readable-text.png"><img src="assets/screenshots/12-readable-text.png" width="1100" alt="Messages workspace showing the original label 80 greeting, ETA wording and closing without identifying routing or timing"></a>
+
+The text is readable; human authorship and a two-way exchange are not independently established. A historical generic extractor mistook part of the header for a time. That extraction is excluded from this view rather than shown as successful decoding.
 
 ## Installation
 
-The Windows x64 and native Linux x86_64 packages are private distributions for authorized holders. This repository does not provide binary downloads. Package names, checksums and setup commands are in [installation notes](docs/installation.md).
+Authorized holders obtain the private package through the owner. There are no executable downloads or public binary releases in this repository. Verify the package checksum before extraction; exact filenames, SHA-256 values and first-run instructions are in [installation](docs/installation.md).
 
-The verified Linux baseline is Debian 12 x86_64 with glibc 2.36. The Linux package includes Python 3.12.14 and application/receiver dependencies; the local interface runs without root or Docker. A browser and host USB permissions are separate prerequisites.
+**Windows x64:** extract into a new directory and run:
 
-## Local data and network use
+```powershell
+.\ACARSINT.exe
+```
 
-Messages, receiver settings and histories are stored locally. The application binds its HTTP interface to loopback by default. Offline Mode is enabled in first-run configuration. Optional metadata and photo lookups send the requested aircraft registration to the chosen provider when enabled; raw ACARS/VDL2 messages are not sent to those photo providers.
+Complete the local Setup Wizard with its one-time token, create the administrator account and configure the intended receivers. The Python runtime and application dependencies are included. Use **Settings → Overview → Shut down platform safely** when finished.
 
-Keep station databases and receiver logs private. A privacy display mode is not a substitute for reviewing exported data. No database, RF recording, photo cache, credential or contact address is included in this repository.
+**Native Linux x86_64:** the verified baseline is Debian 12 with glibc 2.36.
 
-## Development status and limits
+```sh
+tar -xzf ACARSINT-Core-v0.10.0-rc5.1-linux-x86_64.tar.gz
+cd ACARSINT-Core-v0.10.0-rc5.1-linux-x86_64
+./acarsint doctor
+./acarsint
+# Later, in another terminal:
+./acarsint stop
+```
 
-RC5.1 is frozen. Linux software acceptance used labeled fixtures to exercise ACARS, VDL2 and ADS-B ingestion. Those fixtures are integration checks, not RF observations. Physical Linux RTL-SDR reception, simultaneous physical multi-SDR operation and hot-unplug were not tested in the Linux acceptance environment.
+The default interface is `http://127.0.0.1:8080`. Python, required application libraries and native decoders are bundled. A browser and host USB permissions are separate prerequisites; no operator-side Python package installation or decoder compilation is required. The detailed guide covers persistent data paths and non-root RTL-SDR access. OpenWebRX is optional.
 
-The historical classifier versions do not all match the current RC5.1 version. Unknown or legacy interpretations should be presented as such. The map needs configured tile access or a local tile pack; the application does not invent positions or interpolate a flight from sparse observations.
+<details>
+<summary>Receiver settings in the running Windows application</summary>
+<p><a href="assets/screenshots/13-receiver-settings.png"><img src="assets/screenshots/13-receiver-settings.png" width="1100" alt="Real receiver readiness and configuration page with decoders stopped and private device identifiers redacted"></a></p>
+<p>This historical showcase leaves receivers stopped. Settings availability and decoder probes are not a new physical RF acceptance test.</p>
+</details>
 
-Read [architecture and evidence](docs/architecture.md) and [limitations and licensing](docs/limitations.md) for the technical scope and release boundaries.
+## Technical details
 
-## Source and licensing
+Python, FastAPI and SQLite form the backend. The frontend uses HTML, CSS and JavaScript modules, with MapLibre GL for maps.
 
-ACARSINT Core is private/proprietary. This documentation repository makes no license grant and contains no application source or executable dependencies. Third-party components retain their own licenses. Public release licensing and redistribution review remain outstanding; the private Windows/Linux packages are not cleared for public redistribution.
+| Component | Windows x64 | Native Linux x86_64 |
+|---|---|---|
+| Python runtime | CPython 3.14.8 | CPython 3.12.14 |
+| ACARS | `acarsdec` 4.6 | `acarsdec` 4.6 |
+| VDL2 | `dumpvdl2` 2.7.0 | `dumpvdl2` 2.6.0 |
+| Structured ACARS library | `libacars` 2.2.1 | `libacars` 2.2.1 |
+| ADS-B receiver | Pinned Dump1090 with loopback patch | `readsb` 3.16.17+0272517 |
+| SDR components | RTL-SDR 2.0.3 | RTL-SDR 2.0.3 |
+
+## Data and limitations
+
+SQLite data stays local and the HTTP interface binds to loopback by default. Offline Mode is enabled on first run. Optional remote photo/metadata lookups can disclose a requested aircraft identifier to the provider; message payloads are not sent to photo services.
+
+The supplied historical ADS-B observation tables were empty. This presentation therefore does not claim a historical three-protocol fusion result. Linux packaged software acceptance passed on Debian 12 using decoder probes and labeled fixtures; physical Linux RTL-SDR reception, hot-unplug and simultaneous physical multi-SDR operation were not verified.
+
+Session groupings are application context, not independently confirmed complete flights. Recorded positions do not establish continuous surveillance. Further testing boundaries, photo-use restrictions and distribution requirements are in [limitations](docs/limitations.md).
+
+## Development
+
+Most of the work went into retaining useful source evidence, handling different decoder formats, relating observations conservatively and making startup, persistence and shutdown reliable in packaged installations. The interface grew alongside those needs.
+
+RC5.1 is frozen. This repository presents the finished personal engineering project. Core remains private; no software license or public binary redistribution permission is implied by these documentation assets.

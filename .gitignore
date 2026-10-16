@@ -54,3 +54,9 @@ Thumbs.db
 *.pcapng
 *.bak
 *.sql
+
+# Private engineering captures stay outside publication history
+private-originals/
+private-evidence/
+**/photo-test/
+*.har

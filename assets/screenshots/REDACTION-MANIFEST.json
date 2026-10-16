@@ -1,54 +1,133 @@
 {
-  "source": "Genuine packaged-application Chromium captures. Source files are retained locally and were not copied into this repository.",
-  "method": "Cropped RGB PNG copies with opaque pixel redactions; generated copies contain no EXIF metadata. No alternate text or values were generated.",
+  "method": "Opaque RGB pixel redactions measured from browser text ranges. Private originals are excluded. Third-party photos are omitted explicitly, not replaced with other aircraft. Map marker and exact coordinates withheld.",
   "screenshots": [
     {
-      "name": "01-overview.png",
-      "bytes": 91231,
-      "sha256": "a1d13a7a401b2c83bdc6372b39eeb24219cc029be390e9dd8d7524b884babae9",
-      "width": 1365,
-      "height": 465,
-      "exif_count": 0
+      "file": "01-overview.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "2d2ab36ccd7baef3322bd6b403b23cf2863db09e9e7386dd41598938e66b6ff4",
+      "redaction_count": 33,
+      "photographs_omitted": 3
     },
     {
-      "name": "02-session-history.png",
-      "bytes": 24848,
-      "sha256": "6866f1389113e491d7f33ee8e20e33714bee48837fc12415197c83045b499967",
-      "width": 1336,
-      "height": 198,
-      "exif_count": 0
+      "file": "02-messages.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "3f10e77c691e8f76a98263c51043a3fc13d3c953aa952033a1a782227e3dd07b",
+      "redaction_count": 53,
+      "photographs_omitted": 0
     },
     {
-      "name": "03-adsc-fields.png",
-      "bytes": 22755,
-      "sha256": "37aa47331b9d438d88afae1df024eb8bf0bea0c16885665b2656bfead677aded",
-      "width": 1332,
-      "height": 451,
-      "exif_count": 0
+      "file": "03-events.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "062c7363778ac6b1819e85177fd7c236969bf09bc59913bb079d92bf8a79b489",
+      "redaction_count": 36,
+      "photographs_omitted": 0
     },
     {
-      "name": "04-maintenance-report.png",
-      "bytes": 20045,
-      "sha256": "fc7bea6e2268c273c45989daeca03685399ee743c8f9a0c6e485d584074458af",
-      "width": 1400,
-      "height": 344,
-      "exif_count": 0
+      "file": "04-aircraft-list.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "2c4e5776a0e49d656e34f5c6a60ba210fed0923ff3dae108b34b258e4604e545",
+      "redaction_count": 44,
+      "photographs_omitted": 1
     },
     {
-      "name": "05-readable-message.png",
-      "bytes": 18935,
-      "sha256": "159059d0da3e0777cd81d0023355b782f6175f1a606f2fc71642bfdefcaffdd0",
-      "width": 1400,
-      "height": 707,
-      "exif_count": 0
+      "file": "05-aircraft-overview.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "b4142934da101991815f131c2dceb88d16b84474f6a9fe8388b76ec56e5bd553",
+      "redaction_count": 16,
+      "photographs_omitted": 1
     },
     {
-      "name": "06-message-history.png",
-      "bytes": 48910,
-      "sha256": "4f43571080e87bb46072783288c04552926aeb6738a35c8b4b008a98e77755b5",
-      "width": 1336,
-      "height": 482,
-      "exif_count": 0
+      "file": "06-aircraft-messages.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "ef99700b1e6c800aca8e5670fd45082b755ba49f6d6646eb67dc53299245a026",
+      "redaction_count": 14,
+      "photographs_omitted": 1
+    },
+    {
+      "file": "07-aircraft-history.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "ad46fdbf093a3fccc64c42afbd4be01bf9fba56f5babf95091d8ca3d84f6ac3b",
+      "redaction_count": 12,
+      "photographs_omitted": 1
+    },
+    {
+      "file": "08-aircraft-timeline.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "0e89e5b9fba48afb0a94b10f6edf1f4db24fe8a3d7897b00e6a115c35cb39843",
+      "redaction_count": 28,
+      "photographs_omitted": 1
+    },
+    {
+      "file": "10-adsc-decoding.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "1df060780c572d1f8492d8729db20c1607c503acecd2a44bc867a442eb8f5259",
+      "redaction_count": 14,
+      "photographs_omitted": 0
+    },
+    {
+      "file": "11-maintenance-report.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "a427232b35b987490ca5b4155fc045f11f6022a93ce36afa6bb556b0c355ff82",
+      "redaction_count": 11,
+      "photographs_omitted": 0
+    },
+    {
+      "file": "12-readable-text.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "a4a399ca21c4e310898bede4a09e1dc271f1b8f55a0fc189adfb10bac10d32d5",
+      "redaction_count": 63,
+      "photographs_omitted": 0
+    },
+    {
+      "file": "13-receiver-settings.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "aea94f5d418e2deb1f91c3538da02e0cc84e5f95326056d2c25a360415aaff7f",
+      "redaction_count": 12,
+      "photographs_omitted": 0
+    },
+    {
+      "file": "14-receiver-channel-settings.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "cebde548188ef8cb2b3e8ac243f6b84851cd239e22f85af2216dca85ac42dcf7",
+      "redaction_count": 8,
+      "photographs_omitted": 0
+    },
+    {
+      "file": "15-aircraft-evidence.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "34434dcf55bbfa2b9c3f50f2f3933d0c7490c7b111ec1e7f8520526cd816c439",
+      "redaction_count": 15,
+      "photographs_omitted": 1
+    },
+    {
+      "file": "16-related-sequences.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "8bb9ed493a895d04c19c2b2aaa21623e032a49a1c44f161b83e8ca3995cb9909",
+      "redaction_count": 15,
+      "photographs_omitted": 1
+    },
+    {
+      "file": "20-historical-map-regional.png",
+      "width": 1600,
+      "height": 900,
+      "sha256": "c6d2a4d368fe46ec50f4b7ce38828857e0acd8d9138029d9419aba5a65b81efb",
+      "redaction_count": 15,
+      "photographs_omitted": 1
     }
   ]
 }

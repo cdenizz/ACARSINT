@@ -6,7 +6,7 @@ ACARSINT keeps signal demodulation in the upstream receiver programs. The applic
 flowchart LR
     SDR[RTL-SDR and receiver profiles] --> AC[acarsdec]
     SDR --> VDL[dumpvdl2]
-    SDR --> ADSB[readsb, Linux bundle]
+    SDR --> ADSB[Dump1090 on Windows / readsb on Linux]
     AC --> ING[Protocol-specific ingestion]
     VDL --> ING
     ADSB --> ING
@@ -22,7 +22,9 @@ flowchart LR
     API --> UI[JavaScript browser interface]
 ```
 
-The final Windows receiver package provides `acarsdec` and `dumpvdl2`; its receiver notice says the included Dump1090 helper is not integrated as an ACARSINT ADS-B adapter. The native Linux package includes `readsb` integration. The diagram shows the Linux ADS-B path and is not a parity claim for Windows.
+The Windows package contains `acarsdec`, `dumpvdl2` and a patched Dump1090 build. Its managed receiver service has a `dump1090` ADS-B engine: it writes a profile configuration, starts the executable and reads its loopback `aircraft.json` through the production ADS-B ingester. The native Linux package uses `readsb` and local JSON state. These paths were checked in the frozen package, not inferred from executable filenames.
+
+An older Windows `receiver/README.md` says ADS-B is not integrated; it conflicts with the packaged receiver service, ingester and third-party receiver notice. This documentation follows the actual packaged code. The final photo acceptance did not repeat Windows physical RF acceptance. Both adapters retain upstream receiver executables as separate processes.
 
 ## Evidence layers
 
