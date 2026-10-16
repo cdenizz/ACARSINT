@@ -25,14 +25,11 @@ The application renders recorded historical positions with their source context.
 
 Photo discovery is optional. Offline/privacy settings govern remote lookups and image display, and providers can deny access. Frozen package acceptance covered legacy JetPhotos display and fresh Planespotters discovery; the latter supplied 200-pixel thumbnails. This historical tour used existing exact-registration catalog metadata with fresh discovery disabled.
 
-## Publication images and local photography
+## Screenshots and aircraft photography
 
-The full local engineering captures displayed genuine matching JetPhotos photographs in Overview, Aircraft List, Aircraft Detail and Map, with original credits/source links and measured 1600-pixel source widths. These private originals are excluded from Git. Repository copies explicitly omit third-party photographs while reuse permission remains unresolved. No watermark is removed from a reused image, no unrelated aircraft is inserted, and no permission is inferred from normal access or private repository visibility.
+Published screenshots are authentic application captures with identities, exact timing, precise positions, private endpoints and sensitive payload spans permanently masked. A few views are cropped to keep the relevant workspace in frame without empty catalog-photo panels; no underlying records or decoder results were changed.
 
-Sensitive values are irreversibly masked in exported RGB images. The source data and application are unchanged. Counts, labels, subsystem names, parser fields and reception metrics remain where safe. The complete private tour and its evidence are held locally rather than embedded as historical database files.
-
-The tour leaves hardware stopped. Its Settings screen shows ACARS/VDL2 readiness and an unavailable ADS-B readiness indicator in this isolated runtime, with ADS-B controls present. This is not a fresh hardware acceptance result and does not replace the earlier packaged adapter evidence.
-
+The local legacy photo catalog remains supported, but third-party photographs are not included in this repository because reuse permission for the selected images has not been obtained. JetPhotos’ terms describe site use as personal and non-commercial and state that photos remain the property of their photographer or other rights holder ([terms](https://www.jetphotos.com/terms.php)). Access to a photo page does not grant permission to republish its image.
 ## Licensing
 
 This presentation repository has no `LICENSE` file and grants no license to use ACARSINT Core. The private release notices identify GPL decoders and other third-party components. The final acceptance report leaves Core license selection and complete third-party redistribution/corresponding-source review unresolved. The private software packages are not cleared for public redistribution, and no binaries are attached here. Individual upstream components retain their own licenses.
